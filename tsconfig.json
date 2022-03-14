@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // base settings
+    "target": "ES2021", // this is good enough for node v16
+    "lib": ["ES2021"], // also need "DOM" things if writing for broswers
+    "module": "CommonJS", // need this for codes running on node
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // output settings
+    "outDir": "dist", // directory for outputted js files
+    "rootDir": "src", // root directory for our source files
+    "noEmitOnError": true, // don't emit js files on error
+    "alwaysStrict": true, // add 'use strict'
+
+    // error-reporting settings
+    "strict": true,
+    "noImplicitOverride": true,
+
+    // js-related settings
+    "allowJs": true, // in case we also have js files, set to true
+    "checkJs": true // enable type-checking in js files
+  },
+
+  // what files are treated as source files
+  "include": [
+    "src" // everything in the src folder (ts and tsx by default)
+  ]
+}
