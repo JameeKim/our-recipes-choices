@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+/**
+ * Structure of the snack model
+ */
 export interface SnackData {
   flavour: "sweet" | "salty";
 }
@@ -16,15 +19,19 @@ const schema = new mongoose.Schema<SnackData>({
 
 const modelName = "snack";
 
-let Snack: mongoose.Model<SnackData>;
-
 // Remove the previous version of the model that is already registered. While
 // inefficient, this ensures that any changes made to the models are applied.
 if (process.env.NODE_ENV !== "production" && mongoose.models[modelName]) {
   delete mongoose.models[modelName];
 }
 
-Snack = mongoose.model(modelName, schema);
+/**
+ * Mongoose model for snacks
+ */
+const Snack = mongoose.model(modelName, schema);
 export default Snack;
 
+/**
+ * The type of mongoose document for snacks
+ */
 export type SnackDoc = mongoose.HydratedDocument<SnackData>;
