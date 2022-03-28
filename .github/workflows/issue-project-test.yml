@@ -6,12 +6,15 @@ on:
       - opened
       - reopened
 
+env:
+  CUSTOMER: ${{ secrets.CUSTOMER }}
+
 jobs:
   to-project:
-    if: github.actor == secrets.CUSTOMER
     runs-on: ubuntu-latest
     steps:
-      - uses: alex-page/github-project-automation-plus@v0.8.1
+      - if: github.actor == env.CUSTOMER
+        uses: alex-page/github-project-automation-plus@v0.8.1
         with:
           project: Test Project
           column: Backlog
