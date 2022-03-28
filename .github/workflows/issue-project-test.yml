@@ -9,9 +9,12 @@ on:
 env:
   CUSTOMER: ${{ secrets.CUSTOMER }}
 
+
 jobs:
   to-project:
     runs-on: ubuntu-latest
+    permissions: 
+      repository-projects: write
     steps:
       - if: github.actor == env.CUSTOMER
         uses: alex-page/github-project-automation-plus@v0.8.1
